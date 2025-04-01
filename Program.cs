@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using LVTS.Data;
+using LVTS.Models;
+using Microsoft.AspNetCore.Identity;
+
 namespace LVTS
 {
     public class Program
@@ -8,6 +13,20 @@ namespace LVTS
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<LVTSContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddIdentity<Admin, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.User.RequireUniqueEmail = true;
+            })
+                .AddEntityFrameworkStores<LVTSContext>()
+                .AddDefaultTokenProviders();
 
             var app = builder.Build();
 
