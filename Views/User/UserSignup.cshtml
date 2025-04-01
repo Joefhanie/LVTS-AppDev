@@ -1,15 +1,15 @@
-﻿@using LVTS.ViewModels.Admin;
-@model AdminSignupViewModel;
+﻿@using LVTS.ViewModels.User;
+@model UserSignupViewModel;
 
 @{
-    ViewData["Title"] = "Admin Signup";
+    ViewData["Title"] = "Signup";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="container">
     <div class="form-box">
-        <h2 class="text-center mb-4">Admin Signup</h2>
-        <form asp-action="AdminSignup" method="post">
+        <h2 class="text-center mb-4">Signup</h2>
+        <form asp-action="UserSignup" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="FirstName" class="form-label">First Name</label>
@@ -27,8 +27,37 @@
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="mb-3">
+                <label asp-for="Gender" class="form-label"></label>
+                <select asp-for="Gender" class="form-select">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ContactNumber" class="form-label">Contact Number</label>
+                <input asp-for="ContactNumber" class="form-control" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BirthDate" class="form-label">Birth Date</label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PlaceOfBirth" class="form-label">Place Of Birth</label>
+                <input asp-for="PlaceOfBirth" class="form-control" />
+                <span asp-validation-for="PlaceOfBirth" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
                 <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" type="email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="mb-3">
@@ -43,7 +72,7 @@
             </div>
             <input type="submit" value="Sign Up" class="btn btn-success w-100 p-2" />
             <p class="text-center mt-2">
-                Already have an account?  <a asp-controller="Admin" asp-action="AdminLogin" class="text-decoration-none">Log In</a>
+                Already have an account?  <a asp-controller="User" asp-action="UserLogin" class="text-decoration-none">Log In</a>
             </p>
             <div class="text-center">
                 <a asp-controller="Home" asp-action="Index" class="text-decoration-none mt-3">Back</a>

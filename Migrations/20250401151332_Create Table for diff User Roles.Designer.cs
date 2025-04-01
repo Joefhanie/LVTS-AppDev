@@ -4,6 +4,7 @@ using LVTS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LVTS.Migrations
 {
     [DbContext(typeof(LVTSContext))]
-    partial class LVTSContextModelSnapshot : ModelSnapshot
+    [Migration("20250401151332_Create Table for diff User Roles")]
+    partial class CreateTablefordiffUserRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -242,14 +245,11 @@ namespace LVTS.Migrations
 
             modelBuilder.Entity("LVTS.Models.User", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasBaseType("LVTS.Models.Admin");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
 
                     b.Property<DateOnly>("BirthDate")
                         .HasColumnType("date");
@@ -258,15 +258,11 @@ namespace LVTS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -279,24 +275,13 @@ namespace LVTS.Migrations
 
             modelBuilder.Entity("LVTS.Models.Worker", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasBaseType("LVTS.Models.Admin");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
                     b.Property<string>("ContactNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -369,7 +354,7 @@ namespace LVTS.Migrations
 
             modelBuilder.Entity("LVTS.Models.User", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LVTS.Models.Admin", null)
                         .WithOne()
                         .HasForeignKey("LVTS.Models.User", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -378,7 +363,7 @@ namespace LVTS.Migrations
 
             modelBuilder.Entity("LVTS.Models.Worker", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LVTS.Models.Admin", null)
                         .WithOne()
                         .HasForeignKey("LVTS.Models.Worker", "Id")
                         .OnDelete(DeleteBehavior.Cascade)

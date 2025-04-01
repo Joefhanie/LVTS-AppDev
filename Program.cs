@@ -16,6 +16,7 @@ namespace LVTS
             builder.Services.AddDbContext<LVTSContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // Register Identity for Admin
             builder.Services.AddIdentity<Admin, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -26,7 +27,38 @@ namespace LVTS
                 options.User.RequireUniqueEmail = true;
             })
                 .AddEntityFrameworkStores<LVTSContext>()
-                .AddDefaultTokenProviders();
+                .AddDefaultTokenProviders()            
+                .AddSignInManager();
+
+            // Register Identity for Worker
+            builder.Services.AddIdentityCore<Worker>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.User.RequireUniqueEmail = true;
+            })
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<LVTSContext>()
+                .AddDefaultTokenProviders()
+                .AddSignInManager();
+
+            // Register Identity for User
+            builder.Services.AddIdentityCore<User>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.User.RequireUniqueEmail = true;
+            })
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<LVTSContext>()
+                .AddDefaultTokenProviders()
+                .AddSignInManager();
 
             var app = builder.Build();
 
