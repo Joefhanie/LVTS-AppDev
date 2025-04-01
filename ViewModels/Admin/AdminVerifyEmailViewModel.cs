@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LVTS.ViewModels
+namespace LVTS.ViewModels.Admin
 {
     public class AdminVerifyEmailViewModel
     {

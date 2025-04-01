@@ -1,5 +1,5 @@
 ﻿using LVTS.Models;
-using LVTS.ViewModels;
+using LVTS.ViewModels.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
