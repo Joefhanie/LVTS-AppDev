@@ -3,10 +3,152 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <partial name="_AdminSidebarPartial" />
+<partial name="_AdminSidebarPartial" />
 
-    <div class="admin-content">
-        <h1>Transactions</h1>
+<!-- Main Content -->
+<div class="main-content">
+    <div class="container1">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="form-control search-input" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Notification Button -->
+        <button class="btnNotif" id="btnNotification">
+            <i class="bi bi-bell"></i>
+            <span class="notif-badge">10</span>
+        </button>
+
+        <div class="user-card">
+            <img src="maloi.jpg" class="user-picture" alt="User Picture" width="96" height="96">
+            Maloi Yves <br> Admin
+        </div>
     </div>
+
+    <div class="container2">
+        <p class="title">Transactions</p>
+        <p class="showing"> Showing </p>
+
+        <!-- Showing Dropdown -->
+        <div class="dropdown-showing">
+            <button class="btn btn-light btn-mid dropdown-toggle" type="button" id="ddShowItems" data-bs-toggle="dropdown" aria-expanded="false">
+                10
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="showItems(30)">30</a></li>
+                <li><a class="dropdown-item" onclick="showItems(20)">20</a></li>
+                <li><a class="dropdown-item" onclick="showItems(10)">10</a></li>
+            </ul>
+        </div>
+
+        <!-- Filter Dropdown -->
+        <div class="dropdown-filter">
+            <button class="btn btn-light btn-mid dropdown-toggle d-flex align-items-center gap-2" type="button" id="ddFilterItems" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-filter"></i> <span id="filterText">Filter by (Category)</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="updateFilter('Surname')">Filter by Surname</a></li>
+                <li><a class="dropdown-item" onclick="updateFilter('Date')">Filter by Date</a></li>
+                <li><a class="dropdown-item" onclick="updateFilter('Vaccine')">Filter by Vaccine</a></li>
+            </ul>
+        </div>
+
+        <!-- Add Transaction Button -->
+        <button class="btn custom-btn" type="button" id="btnAddTransaction">
+            <i class="bi bi-plus"></i> <span>Add Transaction</span>
+        </button>
+    </div>
+
+    <!--Transactions Table-->
+    <div class="container3 table-responsive">
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Vaccine ID</th>
+                    <th scope="col">Batch No.</th>
+                    <th scope="col">Date Administered</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Vaccine Type</th>
+                    <th scope="col">Worker-in-Charge</th>
+                    <th scope="col">Transaction Type</th>
+                    <th scope="col">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>VA-001</td>
+                    <td>11111-12345</td>
+                    <td>03-20-2025</td>
+                    <td>Bianca de Vera</td>
+                    <td>Pfizer - COVID</td>
+                    <td>Esnyr Ranollo</td>
+                    <td>Appointment</td>
+                    <td>
+                        <button class="btnOperation" id="btnEditTransaction"><i class="bi bi-pen"></i></button>
+                        <button class="btnOperation" id="btnDeleteTransaction"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>VA-002</td>
+                    <td>11112-12345</td>
+                    <td>03-20-2025</td>
+                    <td>Charlie Fleming</td>
+                    <td>Pfizer - COVID</td>
+                    <td>River Joseph</td>
+                    <td>Walk-In</td>
+                    <td>
+                        <button class="btnOperation" id="btnEditTransaction"><i class="bi bi-pen"></i></button>
+                        <button class="btnOperation" id="btnDeleteTransaction"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>VA-003</td>
+                    <td>11113-12345</td>
+                    <td>03-20-2025</td>
+                    <td>Ralph de Vera</td>
+                    <td>Pfizer - COVID</td>
+                    <td>Klarisse de Guzman</td>
+                    <td>Appointment</td>
+                    <td>
+                        <button class="btnOperation" id="btnEditTransaction"><i class="bi bi-pen"></i></button>
+                        <button class="btnOperation" id="btnDeleteTransaction"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>VA-004</td>
+                    <td>11114-12345</td>
+                    <td>03-20-2025</td>
+                    <td>Brent Manalo</td>
+                    <td>Pfizer - COVID</td>
+                    <td>Dustin Yu</td>
+                    <td>Appointment</td>
+                    <td>
+                        <button class="btnOperation" id="btnEditTransaction"><i class="bi bi-pen"></i></button>
+                        <button class="btnOperation" id="btnDeleteTransaction"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>VA-005</td>
+                    <td>11115-12345</td>
+                    <td>03-20-2025</td>
+                    <td>Ashley Ortega</td>
+                    <td>Pfizer - COVID</td>
+                    <td>Emilio Daez</td>
+                    <td>Walk-In</td>
+                    <td>
+                        <button class="btnOperation" id="btnEditTransaction"><i class="bi bi-pen"></i></button>
+                        <button class="btnOperation" id="btnDeleteTransaction"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

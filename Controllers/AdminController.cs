@@ -53,7 +53,7 @@ namespace LVTS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdminSignUp(WorkersSignupViewModel model)
+        public async Task<IActionResult> AdminSignUp(AdminSignupViewModel model)
         {
             if (ModelState.IsValid)
             {
