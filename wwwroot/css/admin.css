@@ -1,4 +1,8 @@
-﻿.admin-content {
+﻿body {
+    background-color: #EBEAFF;
+}
+
+.admin-content {
     padding-left: 1rem;
     min-height: 100vh;
     width: 80%;
@@ -25,4 +29,237 @@
     margin: 1rem;
     justify-content: center;
     text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #0C0950;
+    width: 250px;
+    position: fixed;
+    height: 100vh;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Minimized Sidebar */
+.sidebar.minimized {
+    width: 60px;
+}
+
+/* Hospital Icon */
+.hospital-icon {
+    font-size: 60px;
+    color: #EBEAFF;
+    transition: font-size 0.3s ease;
+    margin-top: 50px;
+}
+
+/* Minimized Sidebar - No Hospital Icon Display */
+.sidebar.minimized .hospital-icon {
+    display: none;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    color: #EBEAFF;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Minimized Sidebar - Toggle Button Display */
+.sidebar.minimized .toggle-btn {
+    left: 15px;
+    margin: auto;
+}
+
+/* Minimized Sidebar - No Text Display */
+.sidebar.minimized .nav-link span {
+    display: none;
+}
+
+/* Minimized Sidebar - Menu Icons Display */
+.sidebar.minimized .nav-link i {
+    margin: auto;
+}
+
+/* Minimized Sidebar - Menu Items */
+.sidebar.minimized .nav {
+    left: 15px;
+    margin: 80px;
+}
+
+/* Navigation Menu */
+.nav {
+    width: 100%;
+    padding-top: 1rem;
+    flex-direction: column;
+}
+
+.nav-link {
+    color: #EBEAFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 0 !important;
+}
+
+    /* Navigation Menu - Hover */
+    .nav-link:hover {
+        background-color: #ebeaffe1;
+        color: #0C0950;
+    }
+
+    /* Navigation Menu - Active */
+    .nav-link.active {
+        background-color: #EBEAFF !important;
+        color: #0C0950 !important;
+    }
+
+/* Main Content */
+.main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease-in-out;
+    padding: 1rem;
+}
+
+/* Minimized Sidebar - Adjust Main Content */
+.sidebar.minimized ~ .main-content {
+    margin-left: 80px;
+}
+
+/* Main Content - First Row */
+.container1 {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    flex-grow: 1;
+    max-width: 50vw;
+    position: relative;
+}
+
+.search-input {
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 50px;
+    border: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    flex-grow: 1;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #000000;
+}
+
+/* Notification Button */
+.btnNotif {
+    background: white;
+    border: 0;
+    font-size: 18px;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    padding: 3px 7px;
+    margin-left: 20px;
+}
+
+/* Notification Badge */
+.notif-badge {
+    position: absolute;
+    right: 0;
+    background-color: rgb(255, 72, 72);
+    color: white;
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: 50%;
+}
+
+/* Text */
+.title {
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-right: 35vw;
+}
+
+.showing {
+    font-size: medium;
+    font-weight: light;
+    display: flex;
+    align-items: center;
+}
+
+/* Main Content - Second Row */
+.container2 {
+    display: flex;
+    margin-top: 40px;
+    align-items: baseline;
+    gap: 10px;
+}
+
+/* Add Transaction Button */
+.custom-btn {
+    background-color: #0C0950;
+    color: white;
+    border: none;
+    height: 50px;
+}
+
+    .custom-btn:hover {
+        background-color: #ffffff;
+    }
+
+/* Main Content - Transactions Table */
+.container3 {
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+/* Table Operation Buttons */
+.btnOperation {
+    border: 0;
+    background-color: white;
+    color: #0C0950;
+}
+
+/* User Card Display */
+.user-card {
+    margin-left: 16vw;
+    display: flex;
+    background-color: white;
+    text-align: center;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 10%;
+    padding-right: 10px;
+}
+
+.user-picture {
+    border: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    margin-right: 10px;
 }
