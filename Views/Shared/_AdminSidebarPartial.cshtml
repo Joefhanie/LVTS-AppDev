@@ -1,19 +1,15 @@
-﻿<div class="container admin-sidebar">
-    <ul class="navbar-nav flex-column ms-auto">
-        <li class="nav-item">
-            <a asp-controller="Admin" asp-action="AdminDashboard" class=" nav-link text-black">Dashboard</a>
-        </li>
-        <li class="nav-item">
-            <a asp-controller="Admin" asp-action="AdminTransactions" class=" nav-link text-black">Transactions</a>
-        </li>
-        <li class="nav-item">
-            <a asp-controller="Admin" asp-action="AdminHealthcareWorkers" class=" nav-link text-black">Healthcare Workers</a>
-        </li>
-        <li class="nav-item">
-            <a asp-controller="Admin" asp-action="AdminPatients" class=" nav-link text-black">Patients</a>
-        </li>
-        <li class="nav-item">
-            <a asp-controller="Admin" asp-action="AdminVaccines" class=" nav-link text-black">Vaccines</a>
-        </li>
+﻿<div class="sidebar" id="sidebar">
+    <i class="bi-hospital hospital-icon" id="hospitalIcon"></i>
+
+    <i class="bi-list toggle-btn" id="toggleSidebar"></i>
+
+    <ul class="nav nav-pills">
+        <li><a asp-controller="Admin" asp-action="AdminDashboard" class="nav-link active"><i class="fs-5 bi-speedometer2"></i> <span>Dashboard</span></a></li>
+        <li><a asp-controller="Admin" asp-action="AdminTransactions" class="nav-link"><i class="fs-5 bi-card-list"></i> <span>Transactions</span></a></li>
+        <li><a asp-controller="Admin" asp-action="AdminPatients" class="nav-link"><i class="fs-5 bi-heart-pulse"></i> <span>Patients</span></a></li>
+        <li><a asp-controller="Admin" asp-action="AdminHealthcareWorkers" class="nav-link"><i class="fs-5 bi-person-heart"></i> <span>Healthcare Workers</span></a></li>
+        <li><a asp-controller="Admin" asp-action="AdminVaccines" class="nav-link"><i class="fs-5 bi-prescription"></i> <span>Vaccines</span></a></li>
+        @* <li><a asp-controller="Admin" asp-action="AdminProfile" class="nav-link"><i class="fs-5 bi-person-vcard"></i> <span>Profile</span></a></li> *@
+        <li><a asp-controller="Admin" asp-action="AdminLogout" class="nav-link"><i class="fs-5 bi-arrow-right-circle"></i> <span>Sign Out</span></a></li>
     </ul>
 </div>
